@@ -13,6 +13,10 @@ const Form = ({ title }) => {
         }
     }
 
+    const toggle = () => {
+        setChecked(!checked)
+    }
+
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -32,8 +36,8 @@ const Form = ({ title }) => {
                     <label htmlFor='numPersons'>Number of persons</label>
                     <input type='number' id='numPersons' />
                 </div>
-                <Checkbox id="terms" label="I agree with the Terms & Conditions" />
-                <button type='submit'>Submit</button>
+                <Checkbox id="terms" label="I agree with the Terms & Conditions" onChange={toggle} checked={checked} />
+                <button type='submit' disabled={!checked}>Submit</button>
             </form>
         </FormContext.Provider>
     )
