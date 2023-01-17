@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import { FormContext } from './Form';
 
 const Checkbox = ({ id, label, onChange, checked }) => {
     return (

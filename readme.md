@@ -90,6 +90,32 @@ Immutability Helper
 - https://www.npmjs.com/package/immutability-helper
 - An npm tool for complex immutable state updates. 
 
+RTL
+- React Testing Library
+- Enzyme is dead...(React <= 16)
+- kentcdodds: Inventor of RTL
+- Cheatsheet
+  - https://testing-library.com/docs/react-testing-library/cheatsheet 
+- Tips
+  - https://develop.sentry.dev/frontend/using-rtl/
+  - Ensure that tests resemble how users interact with your code.
+  - Use jest-dom assertions: https://github.com/testing-library/jest-dom
+  - Use user-event, instead of fire-event: https://testing-library.com/docs/user-event/intro
+  - Avoid nest, when you're testing: https://kentcdodds.com/blog/avoid-nesting-when-youre-testing
+
+Reconciliation
+- An API provided by React, so that you don't have to worry about what changes on every update.
+- React uses a diffing algorithm to determine what does (not) have to be rerendered.
+- https://reactjs.org/docs/reconciliation.html
+
+Memoization
+- An optimization technique where results of an expensive function are stored and cached.
+- The cached result is returned when the same input occurs again. 
+- React.memo()
+
+Fragments
+- Lets you group a list of children, without adding nodes to the DOM.
+
 ## JSX Quirks
 
 In JSX, attribute names are based on DOM API, not HTML language specs.
@@ -154,15 +180,15 @@ react-router-native
 ## Rules
 
 Never update state directly, use setState().
--> ?
+-> setState automatically triggers a rerender.
 
 Use a mutator function in setState.
--> setState is async, thus the state can't be trusted.
--> ?
+-> setState is async, thus you shouldn't read state at call-time.
+-> a mutator function ensures that the state is read at run-time, by using a callback.
 
 In JSX, don't use inline function declarations.
--> Because this may trigger more rerenders and function creations.
--> ?
+-> Because in createElement, a new function will be created.
+-> React will interpret this as a change to the element and will trigger a rerender.
 
 Use the minimal amount of stateful components.
 -> Identity state & all components that depend on it.
@@ -194,6 +220,12 @@ Slide 45:
 
 Why does array mutation lead to bad performance?
 
+## Questions 2
+
+Use RTL in Slides, instead of Enzyme -> Deprecated.
+https://dev.to/wojtekmaj/enzyme-is-dead-now-what-ekl
+
+
 ## Recap 
 
 Fragments
@@ -215,4 +247,13 @@ Exhausive Deps
 Stale Closures 
 - https://dmitripavlutin.com/react-hooks-stale-closures/
 
+## Tomorrow
 
+Redux
+Exhausive Deps
+- https://github.com/facebook/react/issues/14920
+Stale Closures 
+- https://dmitripavlutin.com/react-hooks-stale-closures/
+
+Read some more about React.
+Create your chess-app frontend.
