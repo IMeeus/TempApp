@@ -4,25 +4,34 @@ import { getUsers } from '../services/ReqresService';
 
 const Users = () => {
     let { id } = useParams();
-    const [users, setUsers] = useState(null);
+    const [state, setState] = useState({
+        loading: false,
+        data: null
+    });
 
     useEffect(() => {
+        setState((prev, props) => {
+            return { loading: true }
+        });
+
         const fetchData = async () => {
             var data = await getUsers(id);
-            setUsers(data);
+            setState((prev, props) => {
+                return { loading: false, data: data }
+            });
         };
 
         fetchData();
-    });
+    }, [id]);
 
-    const renderRows = () => users.map(user => {
+    const renderRows = () => state.data.map(user => {
         return (
             <tr key={user.id}>
                 <td>{user.id}</td>
                 <td>{user.email}</td>
                 <td>{user.first_name}</td>
                 <td>{user.last_name}</td>
-                <td>{user.avatar}</td>
+                <td><img src={user.avatar}/></td>
             </tr>
         )
     });
@@ -43,7 +52,7 @@ const Users = () => {
 
                 </thead>
                 <tbody>
-                    {renderRows()}
+                    {state.data && renderRows()}
                 </tbody>
             </table>
         </>
