@@ -101,7 +101,7 @@ RTL
   - Ensure that tests resemble how users interact with your code.
   - Use jest-dom assertions: https://github.com/testing-library/jest-dom
   - Use user-event, instead of fire-event: https://testing-library.com/docs/user-event/intro
-  - Avoid nest, when you're testing: https://kentcdodds.com/blog/avoid-nesting-when-youre-testing
+  - Avoid nesting, when you're testing: https://kentcdodds.com/blog/avoid-nesting-when-youre-testing
 
 Reconciliation
 - An API provided by React, so that you don't have to worry about what changes on every update.
@@ -115,6 +115,11 @@ Memoization
 
 Fragments
 - Lets you group a list of children, without adding nodes to the DOM.
+
+Styling
+- Bootstrap
+- Carbon
+- 
 
 ## JSX Quirks
 
@@ -228,11 +233,9 @@ https://dev.to/wojtekmaj/enzyme-is-dead-now-what-ekl
 
 ## Recap 
 
-Fragments
 Grunt, Gulp, Webpack
 XSS
 Javascript rendering fundamentals
-Promise vs Observable
 
 ## Todo
 
@@ -249,11 +252,14 @@ Stale Closures
 
 ## Tomorrow
 
-Redux
+Custom Hooks
+Promise vs Observable
 Exhausive Deps
 - https://github.com/facebook/react/issues/14920
 Stale Closures 
 - https://dmitripavlutin.com/react-hooks-stale-closures/
+(Redux)
+
 
 Read some more about React.
 Create your chess-app frontend.
